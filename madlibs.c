@@ -74,21 +74,22 @@ void storeMadlibs(FILE* fin, int rows, int cols, char arr[][cols], int* lines){
 void getInput(int rows, int cols, char arr[][cols], int rows2, int cols2, char arr2[][cols2]){
 	int rowInd = 0;
 	for(int i = 0; i < rows - 2; i+=2){
-		if(arr[i+1][0] == 'A'){
-			printf("Please enter an adjective: ");
-			scanf("%s", arr2[rowInd]);
-			rowInd++;
-			
-		}
-		if(arr[i+1][0] == 'N'){
-			printf("Please enter a noun: ");
-			scanf("%s", arr2[rowInd]);
-			rowInd++;
-		}
-		if(arr[i+1][0] == 'V'){
-			printf("Please enter a verb: ");
-			scanf("%s", arr2[rowInd]);
-			rowInd++;
+		switch(arr[i+1][0]){
+			case 'A':
+				printf("Please enter an adjective: ");
+				scanf("%s", arr2[rowInd]);
+				rowInd++;
+				break;
+			case 'N':
+				printf("Please enter a noun: ");
+				scanf("%s", arr2[rowInd]);
+				rowInd++;
+				break;
+			case 'V':
+				printf("Please enter a verb: ");
+				scanf("%s", arr2[rowInd]);
+				rowInd++;
+				break;
 		}
 	}
 }
@@ -96,17 +97,19 @@ void getInput(int rows, int cols, char arr[][cols], int rows2, int cols2, char a
 void userMadlibs(int rows, int cols, char arr[][cols], int rows2, int cols2, char arr2[][cols2]){
 	int rowInd = 0;
 	for(int i = 0; i < rows - 2; i+=2){
-		if(arr[i+1][0] == 'A'){
-			stringCopy(rowInd, cols2, arr2, i+1, cols, arr);
-			rowInd++;
-		}
-		if(arr[i+1][0] == 'N'){
-			stringCopy(rowInd, cols2, arr2, i+1, cols, arr);
-			rowInd++;
-		}
-		if(arr[i+1][0] == 'V'){
-			stringCopy(rowInd, cols2, arr2, i+1, cols, arr);
-			rowInd++;
+		switch(arr[i+1][0]){
+			case 'A':
+				stringCopy(rowInd, cols2, arr2, i+1, cols, arr);
+				rowInd++;
+				break;
+			case 'N':
+				stringCopy(rowInd, cols2, arr2, i+1, cols, arr);
+				rowInd++;
+				break;
+			case 'V':
+				stringCopy(rowInd, cols2, arr2, i+1, cols, arr);
+				rowInd++;
+				break;
 		}
 	}
 }
